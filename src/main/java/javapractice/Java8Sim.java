@@ -30,9 +30,9 @@ public class Java8Sim {
 
         SomeThing someThing = new SomeThing();
         Converter<String,String> converter2 = someThing::startWith;
-        String covted = converter2.convert("哈市阿萨Java");
+        String converted2 = converter2.convert("哈市阿萨Java");
 
-        System.out.println(covted);
+        System.out.println(converted2);
     }
 
     @FunctionalInterface
