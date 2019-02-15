@@ -7,6 +7,8 @@ import java.util.stream.*;
 
 /**
  * Adapted from http://mail.openjdk.java.net/pipermail/lambda-dev/2013-November/011516.html
+ *
+ * @author Eddy.Xu
  */
 public class StreamForker<T> {
 
@@ -37,7 +39,7 @@ public class StreamForker<T> {
 
         Map<Object, Future<?>> actions =
                 forks.entrySet().stream().reduce(
-                        new HashMap<Object, Future<?>>(),
+                        new HashMap<>(),
                         (map, e) -> {
                             map.put(e.getKey(),
                                     getOperationResult(queues, e.getValue()));
@@ -56,7 +58,7 @@ public class StreamForker<T> {
         queues.add(queue);
         Spliterator<T> spliterator = new BlockingQueueSpliterator<>(queue);
         Stream<T> source = StreamSupport.stream(spliterator, false);
-        return CompletableFuture.supplyAsync( () -> f.apply(source) );
+        return CompletableFuture.supplyAsync(() -> f.apply(source));
     }
 
     public static interface Results {
@@ -107,8 +109,7 @@ public class StreamForker<T> {
                 try {
                     t = q.take();
                     break;
-                }
-                catch (InterruptedException e) {
+                } catch (InterruptedException e) {
                 }
             }
 
