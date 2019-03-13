@@ -23,11 +23,13 @@ public class StrategyMain {
     }
 
     static private class IsAllLowerCase implements ValidationStrategy {
+        @Override
         public boolean execute(String s){
             return s.matches("[a-z]+");
         }
     }
     static private class IsNumeric implements ValidationStrategy {
+        @Override
         public boolean execute(String s){
             return s.matches("\\d+");
         }
