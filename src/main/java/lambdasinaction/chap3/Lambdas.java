@@ -29,6 +29,7 @@ public class Lambdas {
 		for(Apple apple : inventory){
 			if(p.test(apple)){
 				result.add(apple);
+
 			}
 		}
 		return result;

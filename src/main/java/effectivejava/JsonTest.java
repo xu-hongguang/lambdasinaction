@@ -95,6 +95,14 @@ public class JsonTest {
         this.rows = rows;
     }
 
+    @Override
+    public String toString() {
+        return "JsonTest{" +
+                "total=" + total +
+                ", rows=" + rows +
+                '}';
+    }
+
     public static class RowsBean {
         /**
          * roleId : 1
@@ -148,6 +156,17 @@ public class JsonTest {
 
         public void setModifyTime(long modifyTime) {
             this.modifyTime = modifyTime;
+        }
+
+        @Override
+        public String toString() {
+            return "RowsBean{" +
+                    "roleId=" + roleId +
+                    ", roleName='" + roleName + '\'' +
+                    ", remark='" + remark + '\'' +
+                    ", createTime=" + createTime +
+                    ", modifyTime=" + modifyTime +
+                    '}';
         }
     }
 }
