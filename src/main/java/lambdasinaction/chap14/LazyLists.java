@@ -110,7 +110,7 @@ public class LazyLists {
     }
 
     public static LazyList<Integer> from(int n) {
-        return new LazyList<Integer>(n, () -> from(n + 1));
+        return new LazyList<>(n, () -> from(n + 1));
     }
 
     public static MyList<Integer> primes(MyList<Integer> numbers) {

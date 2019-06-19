@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import effectivejava.JsonTest;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Map;
 
 public class FastjsonDemo {
@@ -25,6 +27,14 @@ public class FastjsonDemo {
         System.out.println(i);
         for (Map.Entry<String,Object> jsonTest2: jsonObject.entrySet()){
             System.out.println(jsonTest2.getKey() + "=" + jsonTest2.getValue());
+        }
+
+        jsonObject.forEach((k,v) -> System.out.println(k + "-" + v));
+
+        try {
+            System.out.println(InetAddress.getLocalHost().getHostAddress());
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
         }
     }
 }
