@@ -3,6 +3,7 @@ package javapractice.java8.futures;
 import java.util.concurrent.TimeUnit;
 
 public class Tasker1 implements Runnable {
+    /** volatile 解决可见性问题 */
     private volatile String username;
 
     @Override
